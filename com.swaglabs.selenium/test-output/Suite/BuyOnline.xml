@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite hostname="DESKTOP-EEPFM3U" failures="0" tests="4" name="com.swaglabs.selenium.ShopOnline" time="4.719" errors="0" timestamp="29 Aug 2021 22:09:42 GMT">
+  <testcase classname="com.swaglabs.selenium.ShopOnline" name="launchBrowser" time="1.385"/>
+  <testcase classname="com.swaglabs.selenium.ShopOnline" name="login" time="0.747"/>
+  <testcase classname="com.swaglabs.selenium.ShopOnline" name="placeOrder" time="0.75"/>
+  <testcase classname="com.swaglabs.selenium.ShopOnline" name="updateOrder" time="0.002"/>
+</testsuite>

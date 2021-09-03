@@ -1,0 +1,114 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.swaglabs</groupId>
+  <artifactId>com.swaglabs.selenium</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>SWAG Labs System Testing</name>
+  <description>SWAG Labs System Testing</description>
+  
+
+  <properties>
+  	<!-- BEGIN - This resolves the issue: Using platform encoding (Cp1252 actually) to copy filtered resources, i.e. build is platform dependent! -->
+  	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  	<!-- END -->
+    <suiteXmlFile>src/main/resources/swag-labs-test-suite.xml</suiteXmlFile>
+    <skipTests>false</skipTests>
+  </properties>
+  
+  <dependencies>
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <!-- <version>6.1.1</version>-->
+      <version>7.4.0</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>3.141.59</version>
+  	</dependency>
+  	 
+  	<dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi</artifactId>
+      <version>5.0.0</version>
+    </dependency> 	
+    <dependency>
+      <groupId>org.apache.poi</groupId>
+      <artifactId>poi-ooxml</artifactId>
+      <version>5.0.0</version>
+    </dependency>
+    
+	<dependency>
+	    <groupId>com.relevantcodes</groupId>
+	    <artifactId>extentreports</artifactId>
+	    <version>2.41.2</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+	<dependency>
+	    <groupId>commons-io</groupId>
+	    <artifactId>commons-io</artifactId>
+	    <version>2.11.0</version>
+	</dependency>
+	
+	<dependency>
+    	<groupId>org.apache.commons</groupId>
+    	<artifactId>commons-csv</artifactId>
+    	<version>1.5</version>
+	</dependency>
+	
+	<dependency>
+    	<groupId>org.apache.commons</groupId>
+    	<artifactId>commons-lang3</artifactId>
+    	<version>3.11</version>
+	</dependency>
+	
+	<dependency>
+    	<groupId>com.opencsv</groupId>
+    	<artifactId>opencsv</artifactId>
+    	<version>5.5.1</version>
+	</dependency>
+	
+	<dependency>
+    	<groupId>au.com.bytecode</groupId>
+    	<artifactId>opencsv</artifactId>
+    	<version>2.4</version>
+	</dependency>
+	
+	<dependency>
+    	<groupId>com.google.guava</groupId>
+    	<artifactId>guava</artifactId>
+    	<version>27.0.1-jre</version>
+	</dependency>
+	
+ </dependencies>
+     	
+ <build>
+    <plugins>
+      <plugin>
+  		 <groupId>org.apache.maven.plugins</groupId>
+  		 <artifactId>maven-compiler-plugin</artifactId>
+  		 <configuration>
+  	       <source>1.7</source>
+  		   <target>1.7</target>
+  		 </configuration>
+      </plugin>
+  	  <plugin>
+  	    <groupId>org.apache.maven.plugins</groupId>
+  	    <artifactId>maven-surefire-plugin</artifactId>
+  	    <version>2.6</version>
+  	    <configuration>
+  	      <suiteXmlFiles>
+  	        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+  	      </suiteXmlFiles>
+  	      <testFailureIgnore>true</testFailureIgnore>
+  	    </configuration>
+      </plugin>
+    </plugins>
+ </build>  
+ 
+  
+</project>

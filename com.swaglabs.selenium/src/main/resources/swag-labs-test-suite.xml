@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite verbose="1" name="Swag Labs Test Suite" parallel="none">
+  <test name="BuyOnline">
+    <classes>
+      <class name="com.swaglabs.selenium.OrderProductsTest"/>
+    </classes>
+  </test>
+  <!--<test name="group2">
+  	<classes>
+      <class name="com.swaglabs.selenium.OrderProductsTest"/>
+    </classes>	
+  </test> -->
+</suite>

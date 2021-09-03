@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2021-09-03T23:35:33 SAST" name="Swag Labs Test Suite" finished-at="2021-09-03T23:35:46 SAST" duration-ms="12351">
+    <groups>
+    </groups>
+    <test started-at="2021-09-03T23:35:33 SAST" name="BuyOnline" finished-at="2021-09-03T23:35:46 SAST" duration-ms="12351">
+      <class name="com.swaglabs.selenium.OrderProductsTest">
+        <test-method is-config="true" signature="setupSuite()[pri:0, instance:com.swaglabs.selenium.OrderProductsTest@131774fe]" started-at="2021-09-03T23:35:33 SAST" name="setupSuite" finished-at="2021-09-03T23:35:33 SAST" duration-ms="355" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupSuite -->
+        <test-method is-config="true" signature="setupTest()[pri:0, instance:com.swaglabs.selenium.OrderProductsTest@131774fe]" started-at="2021-09-03T23:35:33 SAST" name="setupTest" finished-at="2021-09-03T23:35:36 SAST" duration-ms="2468" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupTest -->
+        <test-method signature="launchBrowser()[pri:1, instance:com.swaglabs.selenium.OrderProductsTest@131774fe]" started-at="2021-09-03T23:35:36 SAST" name="launchBrowser" finished-at="2021-09-03T23:35:38 SAST" duration-ms="1643" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchBrowser -->
+        <test-method signature="login()[pri:2, instance:com.swaglabs.selenium.OrderProductsTest@131774fe]" started-at="2021-09-03T23:35:38 SAST" name="login" finished-at="2021-09-03T23:35:38 SAST" duration-ms="863" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method signature="placeOrder()[pri:3, instance:com.swaglabs.selenium.OrderProductsTest@131774fe]" started-at="2021-09-03T23:35:38 SAST" name="placeOrder" finished-at="2021-09-03T23:35:45 SAST" duration-ms="6481" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- placeOrder -->
+        <test-method signature="logout()[pri:4, instance:com.swaglabs.selenium.OrderProductsTest@131774fe]" started-at="2021-09-03T23:35:45 SAST" name="logout" finished-at="2021-09-03T23:35:46 SAST" duration-ms="827" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- logout -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:com.swaglabs.selenium.OrderProductsTest@131774fe]" started-at="2021-09-03T23:35:46 SAST" name="closeBrowser" finished-at="2021-09-03T23:35:46 SAST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="completeTests()[pri:0, instance:com.swaglabs.selenium.OrderProductsTest@131774fe]" started-at="2021-09-03T23:35:46 SAST" name="completeTests" finished-at="2021-09-03T23:35:46 SAST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- completeTests -->
+        <test-method is-config="true" signature="endSuite()[pri:0, instance:com.swaglabs.selenium.OrderProductsTest@131774fe]" started-at="2021-09-03T23:35:46 SAST" name="endSuite" finished-at="2021-09-03T23:35:46 SAST" duration-ms="487" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endSuite -->
+      </class> <!-- com.swaglabs.selenium.OrderProductsTest -->
+    </test> <!-- BuyOnline -->
+  </suite> <!-- Swag Labs Test Suite -->
+</testng-results>
