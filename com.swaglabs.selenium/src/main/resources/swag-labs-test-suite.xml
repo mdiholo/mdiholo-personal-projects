@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite verbose="1" name="Swag Labs Test Suite" parallel="none">
-  <test name="BuyOnline">
+  <test name="Order Products">
     <classes>
-      <class name="com.swaglabs.selenium.OrderProductsTest"/>
+      <class name="com.swaglabs.selenium.OrderProductsTest">
+      <methods>
+        <include name="launchBrowser"/>
+        <include name="login"/>
+        <include name="sortProducts"/>
+        <include name="placeOrder"/>
+        <include name="logout"/>
+      </methods>
+      </class>      
     </classes>
   </test>
   <!--<test name="group2">
