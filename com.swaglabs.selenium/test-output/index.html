@@ -93,7 +93,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">4 methods,   4 passed</span>
+                    <span class="method-stats">5 methods,   5 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -120,6 +120,11 @@
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Swag_Labs_Test_Suite" title="com.swaglabs.selenium.OrderProductsTest" class="method navigator-link" hash-for-method="placeOrder">placeOrder</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Swag_Labs_Test_Suite" title="com.swaglabs.selenium.OrderProductsTest" class="method navigator-link" hash-for-method="sortProducts">sortProducts</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Swag_Labs_Test_Suite -->
@@ -166,6 +171,13 @@
                   <a name="placeOrder">
                   </a> <!-- placeOrder -->
                   <span class="method-name">placeOrder</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="sortProducts">
+                  </a> <!-- sortProducts -->
+                  <span class="method-name">sortProducts</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -222,28 +234,32 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(4);
+data.addRows(5);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'placeOrder')
 data.setCell(0, 2, 'com.swaglabs.selenium.OrderProductsTest')
-data.setCell(0, 3, 6481);
+data.setCell(0, 3, 6042);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'launchBrowser')
 data.setCell(1, 2, 'com.swaglabs.selenium.OrderProductsTest')
-data.setCell(1, 3, 1643);
+data.setCell(1, 3, 1626);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'login')
+data.setCell(2, 1, 'sortProducts')
 data.setCell(2, 2, 'com.swaglabs.selenium.OrderProductsTest')
-data.setCell(2, 3, 863);
+data.setCell(2, 3, 1268);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'logout')
+data.setCell(3, 1, 'login')
 data.setCell(3, 2, 'com.swaglabs.selenium.OrderProductsTest')
-data.setCell(3, 3, 827);
+data.setCell(3, 3, 1121);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'logout')
+data.setCell(4, 2, 'com.swaglabs.selenium.OrderProductsTest')
+data.setCell(4, 3, 1049);
 window.suiteTableData['Swag_Labs_Test_Suite']= { tableData: data, tableDiv: 'times-div-Swag_Labs_Test_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 9 seconds</span>
+              <span class="suite-total-time">Total running time: 11 seconds</span>
               <div id="times-div-Swag_Labs_Test_Suite">
               </div> <!-- times-div-Swag_Labs_Test_Suite -->
             </div> <!-- times-div -->
@@ -276,35 +292,39 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="configuration-test before">
                 <span class="method-name">setupTest</span>
-                <span class="method-start">367 ms</span>
+                <span class="method-start">294 ms</span>
               </div> <!-- configuration-test before -->
               <div class="test-method">
                 <span class="method-name">launchBrowser</span>
-                <span class="method-start">2886 ms</span>
+                <span class="method-start">2631 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">login</span>
-                <span class="method-start">4535 ms</span>
+                <span class="method-start">4264 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">sortProducts</span>
+                <span class="method-start">5387 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">placeOrder</span>
-                <span class="method-start">5401 ms</span>
+                <span class="method-start">6656 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">logout</span>
-                <span class="method-start">11885 ms</span>
+                <span class="method-start">12700 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-test after">
-                <span class="method-name">closeBrowser</span>
-                <span class="method-start">12714 ms</span>
+                <span class="method-name">completeTests</span>
+                <span class="method-start">13751 ms</span>
               </div> <!-- configuration-test after -->
               <div class="configuration-test after">
-                <span class="method-name">completeTests</span>
-                <span class="method-start">12715 ms</span>
+                <span class="method-name">closeBrowser</span>
+                <span class="method-start">13751 ms</span>
               </div> <!-- configuration-test after -->
               <div class="configuration-suite after">
                 <span class="method-name">endSuite</span>
-                <span class="method-start">12751 ms</span>
+                <span class="method-start">13782 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

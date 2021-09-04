@@ -24,6 +24,9 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
@@ -47,7 +50,7 @@ public class OrderProductsTest {
 	@BeforeSuite
 	public void setupSuite(){
 		//Create Report
-		extent = new ExtentReports(System.getProperty("user.dir")+"/test-output/reports/test-report-"+parObj.captureRunTimeStamp()+".html", true);
+		extent = new ExtentReports(System.getProperty("user.dir")+"/test-output/reports/swag-labs-test-report.html", true);
 	}		
 	
 	@BeforeTest
@@ -128,6 +131,34 @@ public class OrderProductsTest {
 	
 	
 	@Test(priority=3)
+	public void sortProducts() throws Exception {	
+		
+		test = extent.startTest("Sort Products");		
+		
+		imagePath = parObj.takeScreenshot(driver,"initial-sort");
+		test.log(LogStatus.INFO, "Initial Sorting"+test.addScreenCapture(imagePath));	
+		
+		String coordinate_before = getItemCoordinates("Sauce Labs Backpack");		 
+		
+		driver.findElement(By.className("product_sort_container")).click();
+		
+		WebDriverWait wait=new WebDriverWait(driver, 15);		
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div/div/div/div[1]/div[2]/div[2]/span/select/option[3]"))).click();
+				
+		String coordinate_after = getItemCoordinates("Sauce Labs Backpack");
+		
+		if(coordinate_before.equals(coordinate_after)) {
+			imagePath = parObj.takeScreenshot(driver,"subsequent-sort");
+			test.log(LogStatus.FAIL, "Subsequent Sorting"+test.addScreenCapture(imagePath));
+			
+		}else {
+			imagePath = parObj.takeScreenshot(driver,"subsequent-sort");
+			test.log(LogStatus.PASS, "Subsequent Sorting"+test.addScreenCapture(imagePath));
+		}		
+	}
+	
+	
+	@Test(priority=4)
 	public void placeOrder() throws Exception {
 		test = extent.startTest("Place Order");		
 		String orderNo = "";
@@ -137,9 +168,10 @@ public class OrderProductsTest {
 		
 		this.buffreader = new BufferedReader(new FileReader(System.getProperty("user.dir")+"/src/test/resources/test-data.csv"));
         CSVParser parser = CSVFormat.DEFAULT.withDelimiter(';').withHeader().parse(buffreader);
-         
+        
+        int orderCount = 0;
 	    for(CSVRecord record : parser) {
-	    	
+	    	orderCount++;
 	        String firstName = record.get("FirstName");
 	        String lastName = record.get("LastName");
 	        String postalCode = record.get("PostalCode");
@@ -161,7 +193,7 @@ public class OrderProductsTest {
 	        
 	        if(driver.getPageSource().contains("SauceCard #")) {
 				orderNo = driver.findElement(By.className("summary_value_label")).getText();
-				imagePath = parObj.takeScreenshot(driver,"order-"+orderNo.substring(orderNo.indexOf('#')+1)+"-"+parObj.captureRunTimeStamp()+"-captured");
+				imagePath = parObj.takeScreenshot(driver,"order-"+orderNo.substring(orderNo.indexOf('#')+1)+"-"+orderCount);
 				test.log(LogStatus.PASS, "Order '<b>"+orderNo.substring(orderNo.indexOf('#')+1)+"</b>' for "+firstName+" "+lastName+", placed successfully."+test.addScreenCapture(imagePath));
 			
 	        }else {
@@ -172,6 +204,42 @@ public class OrderProductsTest {
 	        
 			driver.findElement(By.id("finish")).click();     	        
 	     }			
+	}
+		
+	
+	@Test(priority=5)
+	public void logout() throws Exception {
+		
+		test = extent.startTest("Logout");
+		
+		driver.findElement(By.id("back-to-products")).click();
+		driver.navigate().refresh();		
+		driver.findElement(By.className("bm-burger-button")).click();		
+		WebDriverWait wait=new WebDriverWait(driver, 15);		
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("logout_sidebar_link"))).click();
+		
+		if(driver.getPageSource().contains("Accepted usernames are:")){
+			imagePath = parObj.takeScreenshot(driver,"logout-success");
+			test.log(LogStatus.PASS, "logout"+test.addScreenCapture(imagePath));
+			
+			this.testSucceeded = true;
+			
+		}else{
+			imagePath = parObj.takeScreenshot(driver,"logout-failure");
+			test.log(LogStatus.FAIL, "logout"+test.addScreenCapture(imagePath));
+			this.testSucceeded = false;
+		}		
+	}
+	
+	
+	public String getItemCoordinates(String item) {
+		
+		WebElement element = driver.findElement(By.linkText(item));
+		Point item_position = element.getLocation();
+		int vertical_point = item_position.getX();		
+		int horizontal_point = item_position.getY();
+		
+		return vertical_point+","+horizontal_point;
 	}
 	
 	
@@ -188,12 +256,7 @@ public class OrderProductsTest {
 		return product;		
 	}
 	
-	
-	//@Test(priority=4)
-	public void updateOrder() {		
-	}
-	
-	
+		
 	@AfterTest
 	public void completeTests() {
 		extent.endTest(test);
@@ -204,21 +267,8 @@ public class OrderProductsTest {
 	public void closeBrowser() {
 		//driver.close();
 	}
+		
 	
-	
-	@Test(priority=4)
-	public void logout() throws Exception {
-		test = extent.startTest("Logout");	
-		driver.findElement(By.id("back-to-products")).click();
-		driver.findElement(By.className("bm-burger-button")).click();
-		
-		driver.findElement(By.xpath("/html/body/div/div/div/div[1]/div[1]/div[1]/div/div[2]/div[1]/nav/a[3]")).click();
-		
-		imagePath = parObj.takeScreenshot(driver,"logout-captured");
-		test.log(LogStatus.PASS, "logout"+test.addScreenCapture(imagePath));
-
-		
-	}
 	@AfterSuite
 	public void endSuite() {
 		

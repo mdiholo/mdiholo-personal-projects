@@ -8,9 +8,9 @@
           <include name="setupSuite"/>
           <include name="setupTest"/>
           <include name="completeTests"/>
-          <include name="logout"/>
           <include name="endSuite"/>
           <include name="closeBrowser"/>
+          <include name="sortProducts"/>
         </methods>
       </class> <!-- com.swaglabs.selenium.OrderProductsTest -->
     </classes>

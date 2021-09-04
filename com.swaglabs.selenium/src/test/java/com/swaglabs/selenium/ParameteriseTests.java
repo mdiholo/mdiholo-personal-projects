@@ -31,10 +31,10 @@ public class ParameteriseTests {
     	String projectHome = System.getProperty("user.dir");
     	String screenshotpath = projectHome+"/test-output/screenshots/"+screenName+".png";
     	
-    	// Convert web driver object to TakeScreenshot
+    	// Convert web driver object to TakeScreenshot 
         TakesScreenshot scrShot =((TakesScreenshot)webdriver);
 
-        // Create image file
+        // Create image file 
           File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
  
           File DestFile=new File(screenshotpath);
