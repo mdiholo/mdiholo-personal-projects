@@ -26,7 +26,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -40,7 +40,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Swag_Labs_Test_Suite" class="navigator-link">
-              <span class="suite-name border-passed">Swag Labs Test Suite</span>
+              <span class="suite-name border-failed">Swag Labs Test Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -93,7 +93,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">5 methods,   5 passed</span>
+                    <span class="method-stats">5 methods, 1 failed,   4 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Swag_Labs_Test_Suite" class="hide-methods failed suite-Swag_Labs_Test_Suite"> (hide)</a> <!-- hide-methods failed suite-Swag_Labs_Test_Suite -->
+                      <a href="#" panel-name="suite-Swag_Labs_Test_Suite" class="show-methods failed suite-Swag_Labs_Test_Suite"> (show)</a> <!-- show-methods failed suite-Swag_Labs_Test_Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Swag_Labs_Test_Suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Swag_Labs_Test_Suite" title="com.swaglabs.selenium.OrderProductsTest" class="method navigator-link" hash-for-method="launchBrowser">launchBrowser</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Swag_Labs_Test_Suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,11 +116,6 @@
                       <a href="#" panel-name="suite-Swag_Labs_Test_Suite" class="show-methods passed suite-Swag_Labs_Test_Suite"> (show)</a> <!-- show-methods passed suite-Swag_Labs_Test_Suite -->
                     </span>
                     <div class="method-list-content passed suite-Swag_Labs_Test_Suite">
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Swag_Labs_Test_Suite" title="com.swaglabs.selenium.OrderProductsTest" class="method navigator-link" hash-for-method="launchBrowser">launchBrowser</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Swag_Labs_Test_Suite" title="com.swaglabs.selenium.OrderProductsTest" class="method navigator-link" hash-for-method="login">login</a> <!-- method navigator-link -->
@@ -139,9 +148,9 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Swag_Labs_Test_Suite" class="panel Swag_Labs_Test_Suite">
-          <div class="suite-Swag_Labs_Test_Suite-class-passed">
+          <div class="suite-Swag_Labs_Test_Suite-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
+              <img src="failed.png"/>
               <span class="class-name">com.swaglabs.selenium.OrderProductsTest</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
@@ -150,8 +159,21 @@
                   <a name="launchBrowser">
                   </a> <!-- launchBrowser -->
                   <span class="method-name">launchBrowser</span>
+                  <div class="stack-trace">java.lang.AssertionError: Checking page title expected [Swag LabsT] but found [Swag Labs]
+	at com.swaglabs.selenium.OrderProductsTest.launchBrowser(OrderProductsTest.java:71)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 32 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Swag_Labs_Test_Suite-class-failed -->
+          <div class="suite-Swag_Labs_Test_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.swaglabs.selenium.OrderProductsTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
                   <a name="login">
@@ -246,28 +268,28 @@ data.addRows(5);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'placeOrder')
 data.setCell(0, 2, 'com.swaglabs.selenium.OrderProductsTest')
-data.setCell(0, 3, 4521);
+data.setCell(0, 3, 5562);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'launchBrowser')
+data.setCell(1, 1, 'login')
 data.setCell(1, 2, 'com.swaglabs.selenium.OrderProductsTest')
-data.setCell(1, 3, 2558);
+data.setCell(1, 3, 1510);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'logout')
+data.setCell(2, 1, 'sortProducts')
 data.setCell(2, 2, 'com.swaglabs.selenium.OrderProductsTest')
-data.setCell(2, 3, 1254);
+data.setCell(2, 3, 1342);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'sortProducts')
+data.setCell(3, 1, 'logout')
 data.setCell(3, 2, 'com.swaglabs.selenium.OrderProductsTest')
-data.setCell(3, 3, 1175);
+data.setCell(3, 3, 899);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'login')
+data.setCell(4, 1, 'launchBrowser')
 data.setCell(4, 2, 'com.swaglabs.selenium.OrderProductsTest')
-data.setCell(4, 3, 751);
+data.setCell(4, 3, 442);
 window.suiteTableData['Swag_Labs_Test_Suite']= { tableData: data, tableDiv: 'times-div-Swag_Labs_Test_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 10 seconds</span>
+              <span class="suite-total-time">Total running time: 9 seconds</span>
               <div id="times-div-Swag_Labs_Test_Suite">
               </div> <!-- times-div-Swag_Labs_Test_Suite -->
             </div> <!-- times-div -->
@@ -300,39 +322,41 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="configuration-test before">
                 <span class="method-name">setupTest</span>
-                <span class="method-start">291 ms</span>
+                <span class="method-start">348 ms</span>
               </div> <!-- configuration-test before -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">launchBrowser</span>
-                <span class="method-start">2343 ms</span>
+                <span class="method-start">2514 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">login</span>
-                <span class="method-start">4907 ms</span>
+                <span class="method-start">2975 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">sortProducts</span>
-                <span class="method-start">5660 ms</span>
+                <span class="method-start">4487 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">placeOrder</span>
-                <span class="method-start">6837 ms</span>
+                <span class="method-start">5831 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">logout</span>
-                <span class="method-start">11362 ms</span>
+                <span class="method-start">11394 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-test after">
                 <span class="method-name">closeBrowser</span>
-                <span class="method-start">12619 ms</span>
+                <span class="method-start">12295 ms</span>
               </div> <!-- configuration-test after -->
               <div class="configuration-test after">
                 <span class="method-name">completeTests</span>
-                <span class="method-start">12619 ms</span>
+                <span class="method-start">12296 ms</span>
               </div> <!-- configuration-test after -->
               <div class="configuration-suite after">
                 <span class="method-name">endSuite</span>
-                <span class="method-start">12646 ms</span>
+                <span class="method-start">12334 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

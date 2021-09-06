@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Swag Labs Test Suite]" guice-stage="DEVELOPMENT">
-  <test thread-count="5" name="BuyOnline(failed)">
+  <test thread-count="5" name="Order Products(failed)">
     <classes>
       <class name="com.swaglabs.selenium.OrderProductsTest">
         <methods>
+          <include name="launchBrowser"/>
           <include name="setupSuite"/>
+          <include name="endSuite"/>
           <include name="setupTest"/>
           <include name="completeTests"/>
-          <include name="endSuite"/>
           <include name="closeBrowser"/>
-          <include name="sortProducts"/>
         </methods>
       </class> <!-- com.swaglabs.selenium.OrderProductsTest -->
     </classes>
-  </test> <!-- BuyOnline(failed) -->
+  </test> <!-- Order Products(failed) -->
 </suite> <!-- Failed suite [Swag Labs Test Suite] -->

@@ -29,7 +29,7 @@ public class ParameteriseTests {
 	public String takeScreenshot(WebDriver webdriver,String screenName) throws Exception{
 		
     	String projectHome = System.getProperty("user.dir");
-    	String screenshotpath = projectHome+"/test-output/screenshots/"+screenName+".png";
+    	String screenshotpath = projectHome+"/test-output/screenshots/"+screenName+captureRunTimeStamp()+".png";
     	
     	// Convert web driver object to TakeScreenshot 
         TakesScreenshot scrShot =((TakesScreenshot)webdriver);

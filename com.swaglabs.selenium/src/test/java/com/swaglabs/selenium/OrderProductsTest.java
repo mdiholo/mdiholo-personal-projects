@@ -34,24 +34,7 @@ import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-public class OrderProductsTest {
-	
-	ParameteriseTests parObj = new ParameteriseTests();
-	WebDriver driver = null;
-	static ExtentReports extent;
-	BufferedReader buffreader;
-	ExtentTest test;
-	String imagePath;
-	boolean testSucceeded;
-	String username;
-	String password;
-	String projectHome = System.getProperty("user.dir");
-	
-	@BeforeSuite
-	public void setupSuite(){
-		//Create Report
-		extent = new ExtentReports(System.getProperty("user.dir")+"/test-output/reports/swag-labs-test-report.html", true);
-	}		
+public class OrderProductsTest extends BaseClass{		
 	
 	@BeforeTest
 	public void setupTest() throws IOException, FileNotFoundException, CsvValidationException {		
@@ -85,6 +68,8 @@ public class OrderProductsTest {
 		// Launch browser and parse the target url
 		driver.get(parObj.readProperties(projectHome, "baseurl"));
 		
+		Assert.assertEquals(driver.getTitle(), "Swag LabsT","Checking page title");
+		/*
 		// Test if the target website is reached
 		if(driver.getTitle().equals("Swag Labs")) {
 			this.testSucceeded = true;
@@ -99,7 +84,8 @@ public class OrderProductsTest {
 			parObj.completeTest(test, driver, extent, this.testSucceeded, "site-not-found", "Site not found <b>" +parObj.readProperties(projectHome, "baseurl")+".</b>");
 	        imagePath = parObj.takeScreenshot(driver,"browser-launch-failure");	      
 			test.log(LogStatus.FAIL, "Swag Labs site not opened."+test.addScreenCapture(imagePath));
-		}
+		}*/
+		
 		extent.endTest(test);
 	}
 	
@@ -266,12 +252,5 @@ public class OrderProductsTest {
 	@AfterTest
 	public void closeBrowser() {
 		//driver.close();
-	}
-		
-	
-	@AfterSuite
-	public void endSuite() {
-		
-		extent.flush();
 	}	
 }
