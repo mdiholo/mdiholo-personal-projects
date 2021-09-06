@@ -1,0 +1,248 @@
+{
+	"info": {
+		"_postman_id": "715a89e8-8290-4011-aba5-c77f0ccb7e24",
+		"name": "Get Weather Focast Details",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Weather By City Name",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var endPointReachable = false;\r",
+							"pm.test(\"Endpoint Reachable Test\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    endPointReachable = true;\r",
+							"});\r",
+							"\r",
+							"const resp = pm.response.json();\r",
+							"\r",
+							"if(endPointReachable){\r",
+							"    pm.test(\"City Test - \"+resp.name, () => {\r",
+							"        pm.expect(resp.name).to.eql(pm.collectionVariables.get(\"city\"));\r",
+							"    });\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}?q={{city}}&appid={{weatherFocastKey}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "{{city}}"
+						},
+						{
+							"key": "appid",
+							"value": "{{weatherFocastKey}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Weather By City Name Incorrect Authorization",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Invalid API Authorization Key\", function () {\r",
+							"    pm.response.to.have.status(401); \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}?q={{city}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "{{city}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Weather By City ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var endPointReachable = false;\r",
+							"pm.test(\"Endpoint Reachable Test\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    endPointReachable = true;\r",
+							"});\r",
+							"\r",
+							"const resp = pm.response.json();\r",
+							"\r",
+							"if(endPointReachable){\r",
+							"    pm.test(\"City Test - \"+resp.name, () => {\r",
+							"        pm.expect(String(resp.id)).to.eql(pm.collectionVariables.get(\"cityid\"));\r",
+							"    });\r",
+							"}"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "javascript"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}?id={{cityid}}&appid={{weatherFocastKey}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "{{cityid}}"
+						},
+						{
+							"key": "appid",
+							"value": "{{weatherFocastKey}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Weather Trigger",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"time_period\":{\r\n      \"start\":{\r\n         \"expression\":\"after\",\r\n         \"amount\":60000\r\n      },\r\n      \"end\":{\r\n         \"expression\":\"after\",\r\n         \"amount\":120000\r\n      }\r\n   },\r\n   \"conditions\":[\r\n      {\r\n         \"name\":\"temp\",\r\n         \"expression\":\"$lt\",\r\n         \"amount\":299\r\n      }\r\n   ],\r\n   \"area\":[\r\n      {\r\n         \"type\":\"Point\",\r\n         \"coordinates\":[\r\n            26.2041,\r\n            28.0473\r\n         ]\r\n      }\r\n   ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{createTriggerUrl}}?appid={{weatherFocastKey}}",
+					"host": [
+						"{{createTriggerUrl}}"
+					],
+					"query": [
+						{
+							"key": "appid",
+							"value": "{{weatherFocastKey}}"
+						},
+						{
+							"key": "units",
+							"value": "metric",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": ""
+		},
+		{
+			"key": "weatherFocastKey",
+			"value": ""
+		},
+		{
+			"key": "city",
+			"value": ""
+		},
+		{
+			"key": "createTriggerUrl",
+			"value": ""
+		},
+		{
+			"key": "cityid",
+			"value": ""
+		}
+	]
+}
