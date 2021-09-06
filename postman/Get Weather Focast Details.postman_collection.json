@@ -13,7 +13,7 @@
 					"script": {
 						"exec": [
 							"var endPointReachable = false;\r",
-							"pm.test(\"Endpoint Reachable Test\", function () {\r",
+							"pm.test(\"Endpoint Reachable Test\", () => {\r",
 							"    pm.response.to.have.status(200);\r",
 							"    endPointReachable = true;\r",
 							"});\r",
@@ -71,7 +71,7 @@
 					"listen": "test",
 					"script": {
 						"exec": [
-							"pm.test(\"Invalid API Authorization Key\", function () {\r",
+							"pm.test(\"Invalid API Authorization Key\", () => {\r",
 							"    pm.response.to.have.status(401); \r",
 							"});"
 						],
@@ -117,7 +117,7 @@
 					"script": {
 						"exec": [
 							"var endPointReachable = false;\r",
-							"pm.test(\"Endpoint Reachable Test\", function () {\r",
+							"pm.test(\"Endpoint Reachable Test\", () => {\r",
 							"    pm.response.to.have.status(200);\r",
 							"    endPointReachable = true;\r",
 							"});\r",
@@ -170,6 +170,22 @@
 		},
 		{
 			"name": "Create Weather Trigger",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Trigger Created\", () => {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
